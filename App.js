@@ -44,14 +44,14 @@ app.get('/names/:id', (req, res) => {
     let result = "not found";
     const urlId = req.params.id
 
-    for (let i = 0; i < arrUsers.length; i++) {
-  const element = arrUsers[i]
-  if(element.id === parseInt(req.params.id)) {
-    result = arrUsers[i].name
+    for (let i = 0; i < arrUsers.length; i++) { //j'ouvre une boucle for qui me permet de parcourir mon tableau 
+  const element = arrUsers[i]                   // je déclare ma constante qui contient mon tableau ainsi que l'id
+  if(element.id === parseInt(req.params.id)) { // mon if : le parseint est une fonction qui sert a analyser des strings donc a le mettre en nombre entier ici, donc entre autre je vérifie que l'element est le même que l'ID dans le tableau 
+    result = arrUsers[i].name // je déclare mon résultat
     break;
   }
     }
-    res.send(result)
+    res.send(result) // j'envoie la réponse 
 })
 
 app.listen(port, () => {
